@@ -1,0 +1,20 @@
+<%= form_for(@article) do |f| %>
+  <%= @article.errors.full_messages.to_sentence %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true, placeholder: "Title" %>
+    <%= p @tag %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content, cols: 80, rows: 20, placeholder: "Content" %>
+  </p>
+  <%= f.text_area :all_tags, placeholder: "Tags separated with comma", cols: 80 %>
+  <br /><br />
+  <%= f.text_area :all_subtags, placeholder: "Subtags separated with comma", cols: 80 %>
+
+  <p>
+    <%= f.submit %> |
+    <%= link_to "Cancel", articles_path %>
+  </p>
+<% end %>

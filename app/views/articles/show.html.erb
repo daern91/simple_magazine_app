@@ -1,0 +1,29 @@
+  <article>
+    <header>
+      <strong><%= @article.title %></strong>
+    </header>
+    <p>
+      <%= @article.content %>
+    </p>
+    <table>
+      <tr>
+        <th>Written:</th>
+        <td><%= @article.created_at.strftime("%m/%d/%Y") %>
+        by <%= @article.user.name %></td>
+      </tr>
+      <tr>
+        <th>Tags:</th>
+        <td><%= @article.tags.map{|x| x.title}.join(', ') %></td>
+      </tr>
+      <tr>
+        <th>Subtags:</th>
+        <td><%= @article.subtags.map{|x| x.title}.join(', ') %></td>
+      </tr>
+    </table>
+  </article><br />
+  <%= %>
+  <%= link_to('All Articles', root_path) %>
+  <% if owner? %> |
+    <%= link_to('Edit Article', edit_article_path(@article)) %> |
+    <%= link_to "Delete Article", @article, method: :delete, data: { confirm: "You sure?" } %>
+  <% end %>
