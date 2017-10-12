@@ -1,4 +1,4 @@
-<h1><%= link_to pluralize(@articles.size, 'Article'), root_path %></h1>
+<h1><%= link_to pluralize(@articles.size, 'Article') + ' (Home)', root_path %></h1>
 
 <% if user_signed_in? %>
   <%= link_to "Add New Article", new_article_path %> |
